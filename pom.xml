@@ -11,7 +11,7 @@
 			<artifactId>selenium-java</artifactId>
 			<version>2.48.2</version>
 		</dependency>
-		<dependency>
+		<!--  dependency>
 	        <groupId>org.uncommons</groupId>
 	        <artifactId>reportng</artifactId>
 	        <version>1.1.2</version>
@@ -22,7 +22,7 @@
 	                <artifactId>testng</artifactId>
 	            </exclusion>
 	        </exclusions>
-	    </dependency>
+	    </dependency -->
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
@@ -56,7 +56,7 @@
             <suiteXmlFiles>
             <suiteXmlFile>testng.xml</suiteXmlFile>
           </suiteXmlFiles>
-                <properties>
+                <!-- properties>
                     <property>
                         <name>usedefaultlisteners</name>
                         <value>false</value>
@@ -66,17 +66,17 @@
                         <value>org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter</value>
                     </property>
                 </properties>
-                <workingDirectory>target/</workingDirectory>
+                <workingDirectory>target/</workingDirectory -->
             </configuration>
         </plugin>
     </plugins>
 </build>
-<repositories>
+<!--  repositories>
     <repository>
         <id>java-net</id>
         <url>http://download.java.net/maven/2</url>
     </repository>
-</repositories>
+</repositories -->
 	<properties>
 		<spring.version>4.1.5.RELEASE</spring.version>
 	</properties>
