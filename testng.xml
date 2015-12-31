@@ -19,15 +19,15 @@
 	</test>
 	
   <test name="Test">
-     <classes>
+    <classes>
+	  <class name="com.javacodegeeks.testng.selenium.TestNGSeleniumBrowserCfgExample" />
 	  <class name="com.javacodegeeks.testng.selenium.TestNGExample"/>
       <class name="com.javacodegeeks.testng.selenium.TestNGSeleniumDataDrivenSearchExample"/>
       <class name="com.javacodegeeks.testng.selenium.TestNGSeleniumSimpleSearchExample"/>
       <class name="com.javacodegeeks.testng.selenium.TestNGSeleniumDriverInjectionExample"/>
+      <class name="org.openqa.selenium.testing.example.GoogleSuggest"/>
       <class name="com.javacodegeeks.testng.selenium.TestNGSeleniumDependentMethodExample"/>
-    </classes>
+     </classes>
    </test> <!-- Test -->
-
-
 
 </suite> <!-- Suite -->

@@ -6,16 +6,23 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 public class GoogleSuggest {
 	
+	WebDriver driver;
+	
+	@BeforeSuite
+	public void initDriver() throws Exception {
+		System.out.println("You are testing in firefox");
+		driver = new FirefoxDriver();
+	}
 	@Test
 	public void googleSuggest() throws Exception {
-        // The Firefox driver supports javascript 
-        WebDriver driver = new FirefoxDriver();
-        
-        // Go to the Google Suggest home page
+
+		// Go to the Google Suggest home page
         driver.get("http://www.google.com/webhp?complete=1&hl=en");
         
         // Enter the query string "Cheese"
@@ -40,6 +47,11 @@ public class GoogleSuggest {
             System.out.println(suggestion.getText());
         }
 
-        driver.quit();
     }
+	
+	@AfterSuite
+	public void quitDriver() throws Exception {
+		if(driver != null)
+		driver.quit();
+	}
 }

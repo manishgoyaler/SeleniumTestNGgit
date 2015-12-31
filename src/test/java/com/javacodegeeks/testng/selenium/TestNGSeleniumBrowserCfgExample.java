@@ -25,7 +25,7 @@ public class TestNGSeleniumBrowserCfgExample {
 	@BeforeTest
 	public void initDriver(@Optional("firefox") String browser) throws Exception {
 		
-				System.out.println("You are testing on browser " + browser);
+		System.out.println("You are testing on browser " + browser);
 		browser = browser.toLowerCase();
 
 		if (browser.equals("chrome")) {	
