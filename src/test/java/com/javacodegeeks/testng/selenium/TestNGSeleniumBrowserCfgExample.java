@@ -25,37 +25,38 @@ public class TestNGSeleniumBrowserCfgExample {
 	@BeforeTest
 	public void initDriver(@Optional("firefox") String browser) throws Exception {
 		
-		String chromeBinaryPath = "";
-	    String osName = System.getProperty("os.name").toUpperCase();
-
-	    if (osName.contains("WINDOWS")) {
-	      chromeBinaryPath = "/chromedriver_win32/chromedriver.exe";
-	    } else if (osName.contains("MAC")) {
-	      chromeBinaryPath = "/chromedriver_mac32/chromedriver";
-
-	      File chromedriver =
-	          new File(ClassLoader.getSystemResource("ChromeDriver" + chromeBinaryPath).getPath());
-
-	      // set application user permissions to 455
-	      chromedriver.setExecutable(true);
-	    } else if (osName.contains("LINUX")) {
-	      chromeBinaryPath = "/chromedriver_linux64/chromedriver";
-
-	      File chromedriver =
-	          new File(ClassLoader.getSystemResource("ChromeDriver" + chromeBinaryPath).getPath());
-
-	      // set application user permissions to 455
-	      chromedriver.setExecutable(true);
-	    }
-
-	    System.setProperty("webdriver.chrome.driver",
-	                       new File(ClassLoader.getSystemResource("ChromeDriver" + chromeBinaryPath)
-	                                    .getPath())
-	                           .getPath());
-		System.out.println("You are testing on browser " + browser);
+				System.out.println("You are testing on browser " + browser);
 		browser = browser.toLowerCase();
 
-		if (browser.equals("chrome")) {			
+		if (browser.equals("chrome")) {	
+			String chromeBinaryPath = "";
+		    String osName = System.getProperty("os.name").toUpperCase();
+
+		    if (osName.contains("WINDOWS")) {
+		      chromeBinaryPath = "/chromedriver_win32/chromedriver.exe";
+		    } else if (osName.contains("MAC")) {
+		      chromeBinaryPath = "/chromedriver_mac32/chromedriver";
+
+		      File chromedriver =
+		          new File(ClassLoader.getSystemResource("ChromeDriver" + chromeBinaryPath).getPath());
+
+		      // set application user permissions to 455
+		      chromedriver.setExecutable(true);
+		    } else if (osName.contains("LINUX")) {
+		      chromeBinaryPath = "/chromedriver_linux64/chromedriver";
+
+		      File chromedriver =
+		          new File(ClassLoader.getSystemResource("ChromeDriver" + chromeBinaryPath).getPath());
+
+		      // set application user permissions to 455
+		      chromedriver.setExecutable(true);
+		    }
+
+		    System.setProperty("webdriver.chrome.driver",
+		                       new File(ClassLoader.getSystemResource("ChromeDriver" + chromeBinaryPath)
+		                                    .getPath())
+		                           .getPath());
+
 			driver = new ChromeDriver();
 		} else if (browser.equals("firefox")) {
 			driver = new FirefoxDriver();
