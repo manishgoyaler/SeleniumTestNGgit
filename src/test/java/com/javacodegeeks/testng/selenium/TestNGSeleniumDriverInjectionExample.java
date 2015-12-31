@@ -25,7 +25,7 @@ public class TestNGSeleniumDriverInjectionExample extends AbstractTestNGSpringCo
 	}
 
 	@Test
-	public void searchGoogle() {
+	public void searchGoogleSpringInjection() {
 		final String searchKey = "TestNG";
 		System.out.println("Search " + searchKey + " in google");
 		driver.navigate().to("http://www.google.com");

@@ -66,7 +66,7 @@ public class TestNGSeleniumBrowserCfgExample {
 	}
 
 	@Test(dataProvider = "searchStrings")
-	public void searchGoogle(final String searchKey) {
+	public void searchGoogleMultiBrowser(final String searchKey) {
 		System.out.println("Search " + searchKey + " in google");
 		driver.navigate().to("http://www.google.com");		
 		WebElement element = driver.findElement(By.name("q"));
