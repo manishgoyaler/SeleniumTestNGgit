@@ -25,7 +25,7 @@
       <class name="com.javacodegeeks.testng.selenium.TestNGSeleniumDataDrivenSearchExample"/>
       <class name="com.javacodegeeks.testng.selenium.TestNGSeleniumSimpleSearchExample"/>
       <class name="com.javacodegeeks.testng.selenium.TestNGSeleniumDriverInjectionExample"/>
-      <class name="org.openqa.selenium.testing.example.GoogleSuggest"/>
+      <class name="com.javacodegeeks.testng.selenium.TestGoogleSuggestExample"/>
       <class name="com.javacodegeeks.testng.selenium.TestNGSeleniumDependentMethodExample"/>
      </classes>
    </test> <!-- Test -->

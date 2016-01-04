@@ -1,4 +1,4 @@
-package org.openqa.selenium.testing.example;
+package com.javacodegeeks.testng.selenium;
 
 import java.util.List;
 
@@ -6,19 +6,26 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-public class GoogleSuggest {
+@ContextConfiguration("driver_context.xml")
+public class TestGoogleSuggestExample extends AbstractTestNGSpringContextTests {
+	@Autowired
+	private WebDriver driver;
 	
-	WebDriver driver;
-	
-	@BeforeSuite
-	public void initDriver() throws Exception {
-		System.out.println("You are testing in firefox");
-		driver = new FirefoxDriver();
+	@BeforeClass
+	public void printBrowserUsed() {
+		System.out.println("Driver used is: " + driver);
 	}
+
 	@Test
 	public void googleSuggest() throws Exception {
 
@@ -29,17 +36,13 @@ public class GoogleSuggest {
         WebElement query = driver.findElement(By.name("q"));
         query.sendKeys("Cheese");
 
-        // Sleep until the div we want is visible or 5 seconds is over
-        long end = System.currentTimeMillis() + 5000;
-        while (System.currentTimeMillis() < end) {
-            WebElement resultsDiv = driver.findElement(By.className("gssb_e"));
-
-            // If results have been returned, the results are displayed in a drop down.
-            if (resultsDiv.isDisplayed()) {
-              break;
-            }
-        }
-
+        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver d) {
+				WebElement resultsDiv = d.findElement(By.className("sbdd_b"));
+				return resultsDiv.isDisplayed();
+			}
+		});
+        
         // And now list the suggestions
         List<WebElement> allSuggestions = driver.findElements(By.xpath("//td[@class='gssb_a gbqfsf']"));
         
